@@ -1,0 +1,85 @@
+﻿<UserControl x:Class="Transportes_Front.src.Component.Activos.ActivosCreate.ActivosCreateView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:Transportes_Front.src.Component.Activos.ActivosCreate"
+             mc:Ignorable="d"
+             d:DesignHeight="450" d:DesignWidth="800"
+             Background="White">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- Título -->
+            <RowDefinition Height="*"/>
+            <!-- Formulario -->
+            <RowDefinition Height="Auto"/>
+            <!-- Botones -->
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <!-- Etiquetas columna 1 -->
+            <ColumnDefinition Width="2*"/>
+            <!-- Campos columna 1 -->
+            <ColumnDefinition Width="Auto"/>
+            <!-- Etiquetas columna 2 -->
+            <ColumnDefinition Width="2*"/>
+            <!-- Campos columna 2 -->
+        </Grid.ColumnDefinitions>
+
+        <!-- Título del formulario -->
+        <TextBlock Text="Agregar Activo"
+                   Grid.Row="0"
+                   Grid.ColumnSpan="4"
+                   FontSize="18" FontWeight="Bold"
+                   Margin="5" HorizontalAlignment="Center"/>
+
+        <!-- Formulario de entrada de datos -->
+        <!-- Etiquetas Columna Izquierda -->
+        <StackPanel Grid.Column="0" Grid.Row="1" Orientation="Vertical">
+            <Label Content="Código:" Margin="5"  Height="30"/>
+            <Label Content="Nombre Activo:" Margin="5"  Height="30"/>
+            <Label Content="Categoria:" Margin="5"  Height="30"/>
+            <Label Content="Odometro:" Margin="5"  Height="30"/>
+            <Label Content="Patente:" Margin="5"  Height="30"/>
+            <Label Content="Año de Fabricación:" Margin="5"  Height="30"/>
+            <Label Content="Identificación Especial:" Margin="5"  Height="30"/>
+            <Label Content="Modelo:" Margin="5"  Height="30"/>
+        </StackPanel>
+
+        <!-- Campos de texto Columna Izquierda con Data Binding -->
+        <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Vertical">
+            <TextBox Text="{Binding Codigo}" Margin="5" Height="30"/>
+            <TextBox Text="{Binding NombreActivo}" Margin="5" Height="30"/>
+            <TextBox Text="{Binding Categoria}" Margin="5" Height="30"/>
+            <TextBox Text="{Binding Odometro}" Margin="5" Height="30"/>
+            <TextBox Text="{Binding Patente}" Margin="5" Height="30"/>
+            <TextBox Text="{Binding AnoFabricacion}" Margin="5" Height="30"/>
+            <TextBox Text="{Binding IdentificacionEspecial}" Margin="5" Height="30"/>
+            <TextBox Text="{Binding Modelo}" Margin="5" Height="30"/>
+        </StackPanel>
+
+        <!-- Etiquetas Columna Derecha -->
+        <StackPanel Grid.Column="2" Grid.Row="1" Orientation="Vertical" Margin="20,0,0,0">
+            <Label Content="Número de Motor:" Margin="5"  Height="30"/>
+            <Label Content="Número de Serie:" Margin="5"  Height="30"/>
+            <Label Content="Glosa:" Margin="5"  Height="30"/>
+        </StackPanel>
+
+        <!-- Campos de texto Columna Derecha con Data Binding -->
+        <StackPanel Grid.Column="3" Grid.Row="1" Orientation="Vertical">
+            <TextBox Text="{Binding NumeroMotor}" Margin="5" Height="30"/>
+            <TextBox Text="{Binding NumeroSerie}" Margin="5" Height="30"/>
+            <TextBox Text="{Binding Glosa}" Margin="5" Height="100" TextWrapping="Wrap"/>
+        </StackPanel>
+
+        <!-- Botones -->
+        <StackPanel Grid.Row="2" Grid.ColumnSpan="4" Orientation="Horizontal"
+                    HorizontalAlignment="Right" VerticalAlignment="Bottom">
+            <Button Content="Volver" Width="100" Background="IndianRed" Margin="5" Command="{Binding NavigateCommand}" CommandParameter="ActivosView"/>
+            <Button Content="Añadir" Width="100" Background="LightGreen" Margin="5"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

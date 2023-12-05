@@ -1,0 +1,57 @@
+﻿
+<!--Cada vez que generes una pagina WPF tienes que cambiar el Page por UserControl-->    
+<UserControl x:Class="Transportes_Front.src.Component.Activos.ActivosAll.ActivosView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Background="White">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- Espacio para el título -->
+            <RowDefinition Height="*"/>
+            <!-- Espacio para el DataGrid -->
+        </Grid.RowDefinitions>
+
+        <!-- Contenedor para el título y el botón -->
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <!-- Espacio para el título -->
+                <ColumnDefinition Width="Auto"/>
+                <!-- Espacio para el botón -->
+            </Grid.ColumnDefinitions>
+
+            <!-- Título -->
+            <TextBlock Text="Activos Disponibles" 
+                       Grid.Column="0"
+                       FontSize="24"
+                       Margin="10"
+                       HorizontalAlignment="Left"/>
+
+            <!-- Botón Agregar Activo -->
+            <Button Content="Agregar Activo"
+                    Grid.Column="1"
+                    Margin="10"
+                    HorizontalAlignment="Right"
+                    Command="{Binding NavigateCommand}"
+                    CommandParameter="ActivosCreate"/>
+        </Grid>
+
+        <!-- DataGrid para mostrar activos -->
+        <DataGrid Grid.Row="1"
+                  Margin="10"
+                  HorizontalAlignment="Stretch"
+                  VerticalAlignment="Stretch">
+            <!-- Columnas del DataGrid -->
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Codigo" Binding="{Binding Code}"/>
+                <DataGridTextColumn Header="Nombre/Descripción" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Categoria" Binding="{Binding Category}"/>
+                <DataGridTextColumn Header="Centro Costo" Binding="{Binding CostCeter}"/>
+                <DataGridTextColumn Header="Odometro Actual" Binding="{Binding Odometro}"/>
+                <DataGridTextColumn Header="Tipo Control" Binding="{Binding TypeControl}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>
+

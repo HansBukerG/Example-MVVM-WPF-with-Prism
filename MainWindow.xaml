@@ -1,0 +1,48 @@
+﻿<Window x:Class="Transportes_Front.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:prism="http://prismlibrary.com/"
+        xmlns:local="clr-namespace:Transportes_Front"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="800" Width="1200">
+    <DockPanel>
+        <Grid DockPanel.Dock="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--Este selector se corresponde a la seleccion de tipo de empresa, ya sea Transportes o Cosecha, hay que buscar la forma de ir pasando la id desde aqui a todos los modulos-->
+            <Menu Grid.Column="1">
+                <MenuItem Header="Cosecha Leonera" Command="{Binding NavigateCommand}" CommandParameter="1">
+                </MenuItem>
+                <MenuItem Header="Transportes Leonera" Command="{Binding NavigateCommand}" CommandParameter="1">
+                </MenuItem>
+            </Menu>
+        </Grid>
+
+        <!-- Barra de Menús de todos los elementos correspondientes a los mantenedores de Transportes -->
+        <Menu DockPanel.Dock="Top" VerticalContentAlignment="Top" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <MenuItem Header="Mantenimiento Preventivo">
+                <!--En CommandParameter se pasa el nombre de la ruta que se definio en el APP.xaml.cs-->
+                <MenuItem Header="OT Trabajo Preventivo" Command="{Binding NavigateCommand}" CommandParameter="OT Preventivo"/>
+            </MenuItem>
+            <MenuItem Header="Mantenimiento Correctivo">
+                <MenuItem Header="OT Trabajo Correctivo" Command="{Binding NavigateCommand}" CommandParameter="OT Correctivo"/>
+            </MenuItem>
+            <MenuItem Header="Mantenedores">
+                <MenuItem Header="Activos" Command="{Binding NavigateCommand}" CommandParameter="ActivosView"/>
+                <MenuItem Header="Insumos" Command="{Binding NavigateCommand}" CommandParameter="InsumosAll"/>
+                <MenuItem Header="Mantenimientos" Command="{Binding NavigateCommand}" CommandParameter="Mantenimientos"/>
+                <MenuItem Header="Categorías" Command="{Binding NavigateCommand}" CommandParameter="Categorías"/>
+            </MenuItem>
+            <!-- Más elementos de menú -->
+        </Menu>
+
+        <!-- Región de contenido donde se mostrarán las vistas -->
+        <ContentControl prism:RegionManager.RegionName="MenuPrincipal" />
+    </DockPanel>
+</Window>
